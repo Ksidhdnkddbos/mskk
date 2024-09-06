@@ -1,0 +1,42 @@
+from pyrogram import filters
+from YMusic import app
+import config
+
+PREFIX = config.PREFIX
+START_COMMAND = ["START", "ST"]
+HELP_COMMAND = ["HELP"]
+
+HELP_MESSAGE = f"""
+🙂 = <b>Semua Orang</b>
+😈 = <b>Admin</b>
+
+**Commands:**
+🙂| `{PREFIX}play [nama lagu|audio file]` - <i>Mencari musik dari youtube dan memutarnya</i>
+🙂| `{PREFIX}vplay [nama lagu|video file]` - <i>Mencari musik dari youtube dan memutarnya dalam bentuk video</i>
+😈| `{PREFIX}pause` - <i>Pause musik</i>
+😈| `{PREFIX}resume` - <i>Resume musik</i>
+🙂| `{PREFIX}current` - <i>Melihat lagu yang sekarang diputar</i>
+🙂| `{PREFIX}playlist` - <i>Melihat daftar lagu</i>
+😈| `{PREFIX}stop` - <i>Mengakhiri musik</i>
+😈| `{PREFIX}skip` - <i>Melewati lagu sekarang dan melanjutkan ke lagu berikutnya</i>
+😈| `{PREFIX}loop` - <i>Memutar ulang lagu yang sedang diputar sebanyak 5x</i>
+😈| `{PREFIX}endloop` - <i>Mematikan pemutaran ulang</i>
+
+**Extra:**
+🙂| `{PREFIX}lyric [nama lagu]` - <i>Mencari lirik lagu</i>
+🙂| `{PREFIX}nando [query]` - <i>Ini adalah <b>AI</b>, kamu bisa menanyakan apa saja, saya akan menjawab sebaik-baiknya</i>
+🙂| `{PREFIX}nandos [query]` - <i>Ini adalah <b>AI</b> model llama3-70b, kamu bisa menanyakan apa saja, saya akan menjawab sebaik-baiknya</i>
+
+<b>Powered by AI</b>
+<i>Made with </i>💙
+"""
+
+# @app.on_message(filters.private & filters.command(START_COMMAND, PREFIX))
+# async def _start(_, message):
+    # await message.reply_text(
+        # "Hey user how are you.\nIf you need any help just ping me I am here to help you."
+    # )
+
+@app.on_message(filters.command(HELP_COMMAND, PREFIX))
+async def _help(_, message):
+    await message.reply_text(HELP_MESSAGE)
