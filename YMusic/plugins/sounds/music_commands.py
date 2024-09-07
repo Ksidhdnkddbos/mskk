@@ -13,9 +13,9 @@ from collections import defaultdict
 import time
 import config
 
-PLAY_COMMAND = ["P", "PLAY"]
-VPLAY_COMMAND = ["VP", "VPLAY"]
-PLAYLIST_COMMAND = ["PLAYLIST", "PL"]
+PLAY_COMMAND = ["تشغيل", "شغل"]
+VPLAY_COMMAND = ["فيد", "فيديو"]
+PLAYLIST_COMMAND = ["قائمة التشغيل", "PL"]
 TEST_COMMAND = ["T"]
 PREFIX = config.PREFIX
 RPREFIX = config.RPREFIX
